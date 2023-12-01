@@ -21,8 +21,10 @@ struct Index { // 自定义组件：可复用的UI单元
             this.message = 'Hello ArkTS!'
           })
 
-        Image('https://consumer.huawei.com/content/dam/huawei-cbg-site/cn/mkt/pdp/phones/mate60-pro/img/performance/performance-feature-item-2.webp')
+        //Image('https://consumer.huawei.com/content/dam/huawei-cbg-site/cn/mkt/pdp/phones/mate60-pro/img/performance/performance-feature-item-2.webp')
+        Image($r('app.media.icon'))
           .width(250)
+          .interpolation(ImageInterpolation.High)
       }
       .width('100%')
     }
