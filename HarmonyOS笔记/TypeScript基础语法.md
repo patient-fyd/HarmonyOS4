@@ -109,3 +109,28 @@ while(i <= 3){
 ```
 
 <img src="image/循环迭代1.png"/>
+
+```typescript
+// 定义数组
+let names : string[] = ['Jack','Rose']
+
+// for in 迭代器，遍历得到数组角标
+for (const i in names) {
+    console.log(i + ':' + names[i])
+}
+
+// for of 迭代器，直接得到元素
+for (const name of names) {
+    console.log(name)
+}
+```
+
+<img src = "image/循环迭代2.png">
+
+## 函数
+
++ TypeSCript通常利用function关键字声明函数，并且支持可选参数、默认参数、箭头函数等特殊语法。
+
+```typescript
+```
+
