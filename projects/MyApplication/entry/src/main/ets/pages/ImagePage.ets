@@ -21,6 +21,24 @@ struct Index {
           .onChange(value =>{
             this.imageWidth = parseInt(value)
           })
+
+        Button('缩小')
+          .width(80)
+          .fontSize(20)
+          .onClick(() => {
+            if (this.imageWidth >= 10) {
+              this.imageWidth -= 10
+            }
+          })
+
+        Button('放大')
+          .width(80)
+          .fontSize(20)
+          .onClick(() => {
+            if (this.imageWidth < 300) {
+              this.imageWidth += 10
+            }
+          })
       }
       .width('100%')
     }
