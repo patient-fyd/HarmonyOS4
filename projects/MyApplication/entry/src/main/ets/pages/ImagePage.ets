@@ -4,24 +4,37 @@ struct Index {
   @State imageWidth: number = 150
 
   build() {
-    Row() {
-      Column() {
+    Column() {
+      Row() {
         Image($r('app.media.icon'))
           .width(this.imageWidth)
           .interpolation(ImageInterpolation.High)
+      }
+      .width('100%')
+      .height(400)
+      .justifyContent(FlexAlign.Center)
 
+      Row() {
         Text($r('app.string.width_label'))
           .fontSize(20)
           .fontWeight(FontWeight.Bold)
 
-        TextInput({text:this.imageWidth.toFixed(0)})
+        TextInput({ text: this.imageWidth.toFixed(0) })
           .width(150)
-          .backgroundColor('#36D')
+          .backgroundColor('#FFF')
           .type(InputType.Number)
-          .onChange(value =>{
+          .onChange(value => {
             this.imageWidth = parseInt(value)
           })
+      }
+      .width('100%')
+      .padding({left:30,right:30})
+      .justifyContent(FlexAlign.SpaceBetween)
 
+      Divider()
+        .width('91%')
+
+      Row(){
         Button('缩小')
           .width(80)
           .fontSize(20)
@@ -39,23 +52,26 @@ struct Index {
               this.imageWidth += 10
             }
           })
-
-        Slider({
-          min: 100,
-          max: 300,
-          value: this.imageWidth,
-        })
-          .width('90%')
-          .blockColor('36D')
-          .trackThickness(8)
-          .showTips(true)
-          .onChange(value => {
-            this.imageWidth = value
-          })
-
       }
       .width('100%')
+      .margin({top:40,bottom:20})
+      .justifyContent(FlexAlign.SpaceEvenly)
+
+
+      Slider({
+        min: 100,
+        max: 300,
+        value: this.imageWidth,
+      })
+        .width('90%')
+        .blockColor('36D')
+        .trackThickness(8)
+        .showTips(true)
+        .onChange(value => {
+          this.imageWidth = value
+        })
     }
+    .width('100%')
     .height('100%')
   }
 }
