@@ -39,6 +39,20 @@ struct Index {
               this.imageWidth += 10
             }
           })
+
+        Slider({
+          min: 100,
+          max: 300,
+          value: this.imageWidth,
+        })
+          .width('90%')
+          .blockColor('36D')
+          .trackThickness(8)
+          .showTips(true)
+          .onChange(value => {
+            this.imageWidth = value
+          })
+
       }
       .width('100%')
     }
