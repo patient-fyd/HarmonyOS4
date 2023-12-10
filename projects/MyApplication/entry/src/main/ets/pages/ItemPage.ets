@@ -12,6 +12,47 @@ class Item {
   }
 }
 
+import {Header} from '../components/CommonComponents'
+
+/*// 全局自定义构建函数
+@Builder function ItemCard(item: Item) {
+  Row({space:10}){
+    Image(item.image)
+      .width(100)
+    Column({space:4}){
+      if (item.discount) {
+        Text(item.name)
+          .fontSize(20)
+          .fontWeight(FontWeight.Bold)
+        Text('原价：￥'+item.price)
+          .fontColor('#CCC')
+          .fontSize(14)
+          .decoration({type:TextDecorationType.LineThrough})
+        Text('折扣价：￥'+ (item.price - item.discount))
+          .fontColor('#F36')
+          .fontSize(18)
+        Text('补贴：￥'+item.discount)
+          .fontColor('#F36')
+          .fontSize(18)
+      } else {
+        Text(item.name)
+          .fontSize(20)
+          .fontWeight(FontWeight.Bold)
+        Text('￥'+item.price)
+          .fontColor('#F36')
+          .fontSize(18)
+      }
+    }
+    .height('100%')
+    .alignItems(HorizontalAlign.Start)
+  }
+  .width('100%')
+  .backgroundColor('#FFF')
+  .borderRadius(20)
+  .height(120)
+  .padding(10)
+}*/
+
 @Entry
 @Component
 struct Index {
@@ -29,55 +70,16 @@ struct Index {
 
   build() {
     Column({ space: 8 }) {
-      Row(){
-        Text('商品列表')
-          .fontSize(30)
-          .fontWeight(FontWeight.Bold)
-      }
-      .width('100%')
-      .height(30)
-      .margin({bottom:20})
+      // 标题部分
+      Header({title:'商品列表'})
+        .margin({bottom:20})
 
       List({space:8}){
         ForEach(
           this.items,
           (item:Item) =>{
             ListItem(){
-              Row({space:10}){
-                Image(item.image)
-                  .width(100)
-                Column({space:4}){
-                  if (item.discount) {
-                    Text(item.name)
-                      .fontSize(20)
-                      .fontWeight(FontWeight.Bold)
-                    Text('原价：￥'+item.price)
-                      .fontColor('#CCC')
-                      .fontSize(14)
-                      .decoration({type:TextDecorationType.LineThrough})
-                    Text('折扣价：￥'+ (item.price - item.discount))
-                      .fontColor('#F36')
-                      .fontSize(18)
-                    Text('补贴：￥'+item.discount)
-                      .fontColor('#F36')
-                      .fontSize(18)
-                  } else {
-                    Text(item.name)
-                      .fontSize(20)
-                      .fontWeight(FontWeight.Bold)
-                    Text('￥'+item.price)
-                      .fontColor('#F36')
-                      .fontSize(18)
-                  }
-                }
-                .height('100%')
-                .alignItems(HorizontalAlign.Start)
-              }
-              .width('100%')
-              .backgroundColor('#FFF')
-              .borderRadius(20)
-              .height(120)
-              .padding(10)
+              this.ItemCard(item)
             }
           }
         )
@@ -85,13 +87,48 @@ struct Index {
       .width('100%')
       .layoutWeight(1)
 
-
-
-
     }
     .width('100%')
     .height('100%')
     .backgroundColor('#EFEFEF')
     .padding(20)
+  }
+
+  @Builder ItemCard(item: Item) {
+    Row({space:10}){
+      Image(item.image)
+        .width(100)
+      Column({space:4}){
+        if (item.discount) {
+          Text(item.name)
+            .fontSize(20)
+            .fontWeight(FontWeight.Bold)
+          Text('原价：￥'+item.price)
+            .fontColor('#CCC')
+            .fontSize(14)
+            .decoration({type:TextDecorationType.LineThrough})
+          Text('折扣价：￥'+ (item.price - item.discount))
+            .fontColor('#F36')
+            .fontSize(18)
+          Text('补贴：￥'+item.discount)
+            .fontColor('#F36')
+            .fontSize(18)
+        } else {
+          Text(item.name)
+            .fontSize(20)
+            .fontWeight(FontWeight.Bold)
+          Text('￥'+item.price)
+            .fontColor('#F36')
+            .fontSize(18)
+        }
+      }
+      .height('100%')
+      .alignItems(HorizontalAlign.Start)
+    }
+    .width('100%')
+    .backgroundColor('#FFF')
+    .borderRadius(20)
+    .height(120)
+    .padding(10)
   }
 }
