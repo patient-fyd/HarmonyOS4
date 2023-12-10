@@ -2,11 +2,13 @@ class Item {
   name: string
   image: ResourceStr
   price: number
+  discount: number
 
-  constructor(name: string, image: ResourceStr, price: number) {
+  constructor(name: string, image: ResourceStr, price: number, discount: number = 0) {
     this.name = name
     this.image = image
     this.price = price
+    this.discount = discount
   }
 }
 
@@ -15,7 +17,7 @@ class Item {
 struct Index {
   // 商品数据
   private items: Array<Item> = [
-    new Item('华为Mate60', $r('app.media.mate60'), 6999),
+    new Item('华为Mate60', $r('app.media.mate60'), 6999, 500),
     new Item('MateBookProX', $r('app.media.mateBookProX'), 13999),
     new Item('WatchGT4', $r('app.media.watchGT4'), 1438),
     new Item('FreeBuds Pro3', $r('app.media.freeBudsPro3'), 1499),
@@ -39,12 +41,28 @@ struct Index {
             Image(item.image)
               .width(100)
             Column({space:4}){
-              Text(item.name)
-                .fontSize(20)
-                .fontWeight(FontWeight.Bold)
-              Text('￥'+item.price)
-                .fontColor('#F36')
-                .fontSize(18)
+              if (item.discount) {
+                Text(item.name)
+                  .fontSize(20)
+                  .fontWeight(FontWeight.Bold)
+                Text('原价：￥'+item.price)
+                  .fontColor('#CCC')
+                  .fontSize(14)
+                  .decoration({type:TextDecorationType.LineThrough})
+                Text('折扣价：￥'+ (item.price - item.discount))
+                  .fontColor('#F36')
+                  .fontSize(18)
+                Text('补贴：￥'+item.discount)
+                  .fontColor('#F36')
+                  .fontSize(18)
+              } else {
+                Text(item.name)
+                  .fontSize(20)
+                  .fontWeight(FontWeight.Bold)
+                Text('￥'+item.price)
+                  .fontColor('#F36')
+                  .fontSize(18)
+              }
             }
             .height('100%')
             .alignItems(HorizontalAlign.Start)
