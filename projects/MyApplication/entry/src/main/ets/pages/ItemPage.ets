@@ -53,6 +53,19 @@ import {Header} from '../components/CommonComponents'
   .padding(10)
 }*/
 
+// 全局公告样式
+@Styles function fillScreen() {
+  .width('100%')
+  .height('100%')
+  .backgroundColor('#EFEFEF')
+  .padding(20)
+}
+
+@Extend(Text) function priceText() {
+  .fontColor('#F36')
+  .fontSize(18)
+}
+
 @Entry
 @Component
 struct Index {
@@ -88,10 +101,8 @@ struct Index {
       .layoutWeight(1)
 
     }
-    .width('100%')
-    .height('100%')
-    .backgroundColor('#EFEFEF')
-    .padding(20)
+    .fillScreen()
+
   }
 
   @Builder ItemCard(item: Item) {
@@ -108,18 +119,15 @@ struct Index {
             .fontSize(14)
             .decoration({type:TextDecorationType.LineThrough})
           Text('折扣价：￥'+ (item.price - item.discount))
-            .fontColor('#F36')
-            .fontSize(18)
+            .priceText()
           Text('补贴：￥'+item.discount)
-            .fontColor('#F36')
-            .fontSize(18)
+            .priceText()
         } else {
           Text(item.name)
             .fontSize(20)
             .fontWeight(FontWeight.Bold)
           Text('￥'+item.price)
-            .fontColor('#F36')
-            .fontSize(18)
+            .priceText()
         }
       }
       .height('100%')
