@@ -32,25 +32,32 @@ struct Index {
       .width('100%')
       .margin({bottom:20})
 
-      Row({space:10}){
-        Image($r('app.media.mate60'))
-          .width(100)
-        Column({space:4}){
-          Text('华为Mate60')
-            .fontSize(20)
-            .fontWeight(FontWeight.Bold)
-          Text('￥6999')
-            .fontColor('#F36')
-            .fontSize(18)
+      ForEach(
+        this.items,
+        (item:Item) =>{
+          Row({space:10}){
+            Image(item.image)
+              .width(100)
+            Column({space:4}){
+              Text(item.name)
+                .fontSize(20)
+                .fontWeight(FontWeight.Bold)
+              Text('￥'+item.price)
+                .fontColor('#F36')
+                .fontSize(18)
+            }
+            .height('100%')
+            .alignItems(HorizontalAlign.Start)
+          }
+          .width('100%')
+          .backgroundColor('#FFF')
+          .borderRadius(20)
+          .height(120)
+          .padding(10)
         }
-        .height('100%')
-        .alignItems(HorizontalAlign.Start)
-      }
-      .width('100%')
-      .backgroundColor('#FFF')
-      .borderRadius(20)
-      .height(120)
-      .padding(10)
+      )
+
+
     }
     .width('100%')
     .height('100%')
