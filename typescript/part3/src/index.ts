@@ -4,3 +4,5 @@ function sum(a: number, b: number): number {
 
 console.log(sum(123, 456));
 console.log('Hello World!');
+
+console.log(Promise);
