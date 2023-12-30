@@ -1,0 +1,51 @@
+{
+  /*
+  ts编译器的配置文件，可以在tsconfig.json中进行配置
+  "include": 定义希望被编译文件所在的目录
+  "exclude": 定义需要排除在外的目录
+  "extends": 定义被继承的配置文件
+  "files": 指定被编译文件的列表，只有需要编译的文件少时才会用到
+  "compilerOptions": 编译选项是配置文件中非常重要也比较复杂的配置选项
+  */
+  "include": [
+    "./src/**/*.ts"
+  ],
+  "compilerOptions": {
+    // "target": 设置ts代码编译的目标版本
+    "target": "ES6",
+    // "module": 设置编译后代码使用的模块化系统
+    "module": "ES6",
+    // "lib": 设置编译后代码使用的库
+    //"lib": [],
+    // "outDir": 设置编译后的代码输出目录
+    "outDir": "./dist",
+    // "outFile": 设置编译后的代码输出文件(全局作用域中的代码合并成一个文件)
+    //"outFile": "./dist/app.js",
+    // "allowJs": 设置编译后的代码是否允许使用js,默认是false
+    "allowJs": true,
+    // "checkJs": 设置编译后的代码是否检查js,默认是false
+    "checkJs": true,
+    // "removeComments": 设置编译后的代码是否删除注释
+    "removeComments": false,
+    // "noEmit": 设置代码是否生成编译后代码,
+    "noEmit": false,
+    // "noEmitOnError": 当有错误时，是否生成编译后代码
+    "noEmitOnError": false,
+    // "esModuleInterop": 设置编译后的代码是否使用esmodule导出方式
+    "esModuleInterop": true,
+    // "forceConsistentCasingInFileNames": 设置编译后的文件名是否保持一致
+    "forceConsistentCasingInFileNames": true,
+    // "strict": 设置编译后的代码是否开启严格模式（总开关）
+    "strict": true,
+    // "alwaysStrict": 设置编译后的代码是否开启严格模式
+    "alwaysStrict": true,
+    // "skipLibCheck": 设置编译后的代码是否跳过检查
+    "skipLibCheck": true,
+    // "noImplicitAny": 设置编译后的代码是否不允许使用隐式any
+    "noImplicitAny": true,
+    // "noImplicitThis": 设置编译后的代码是否不允许使用隐式this
+    "noImplicitThis": true,
+    // "strictNullChecks": 设置编译后的代码是否开启严格检查空值
+    "strictNullChecks": true
+  }
+}
