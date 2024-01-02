@@ -5,6 +5,7 @@
          * TS可以在属性前添加属性的修饰符
          *      public 修饰的属性可以在任意位置修改
          *      private 修饰的属性只能在类内部进行访问
+         *      protected 修饰的属性只能在当前类和当前类的子类中进行访问
          */
         private _name: string;
         private _age: number;
@@ -43,6 +44,13 @@
     per.age = 20;
     per.name = "李四";
     console.log(per);
+
+    class A{
+        // 可以直接在属性定义到构造函数中，语法糖
+        constructor(public name:string,public age:number){
+
+        }
+    }
 
 
 })();
