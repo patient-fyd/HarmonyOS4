@@ -1,3 +1,84 @@
+// 设置变量
+@bg-color: #b7d4a8;
+
+// 清除默认样式
+*{
+  margin: 0;
+  padding: 0;
+  // 设置盒子模型
+  box-sizing: border-box;
+}
+
 body{
-  background-color: aquamarine;
+  font: bold 20px "Courier New";
+}
+
+// 设置主窗口的样式
+#main{
+  width: 360px;
+  height: 420px;
+  background-color: @bg-color;
+  margin: 100px auto;
+  border: 10px solid black;
+  border-radius: 20px;
+
+  // 开启弹性盒模型
+  display: flex;
+  // 设置主轴的方向
+  flex-flow: column;
+  // 设置侧轴的对齐方式
+  align-items: center;
+  // 设置主轴的对齐方式
+  justify-content: space-around;
+
+  // 游戏范围
+  #stage{
+    width: 304px;
+    height: 304px;
+    border: 2px solid black;
+    // 开启相对定位
+    position: relative;
+
+    // 设置蛇的样式
+    #snake{
+      &>div{
+        width: 10px;
+        height: 10px;
+        background-color: black;
+        border: 1px solid @bg-color;
+        // 开启绝对定位
+        position: absolute;
+      }
+    }
+    #fond{
+      width: 10px;
+      height: 10px;
+      position: absolute;
+      left: 40px;
+      top: 100px;
+
+      // 开启弹性盒
+      display: flex;
+      // 设置横轴为主轴，wrap表示会自动换行
+      flex-flow: row wrap;
+      justify-content: space-between;
+      align-content: space-between;
+
+      &>div{
+        width: 4px;
+        height: 4px;
+        background-color: black;
+        // 设置旋转角度
+        transform: rotate(45deg);
+      }
+    }
+  }
+
+  // 记分牌
+  #score-panel{
+    width: 300px;
+    display: flex;
+    // 设置主轴的对齐方式
+    justify-content: space-between;
+  }
 }
