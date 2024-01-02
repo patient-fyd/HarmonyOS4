@@ -6,6 +6,8 @@ class Snake{
     bodies: HTMLCollection;
     // 获取蛇的容器
     element: HTMLElement;
+    // 获取蛇的方向
+    direction: string = '';
 
     constructor() {
         this.element = document.getElementById('snake')!;
