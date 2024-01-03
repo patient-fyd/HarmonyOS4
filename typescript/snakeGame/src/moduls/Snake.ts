@@ -26,10 +26,26 @@ class Snake{
 
     // 设置蛇头的坐标
     set X(value) {
+        // 如果新值和旧值相同，则直接返回不再修改
+        if(this.X === value) {
+            return;
+        }
+        // 检查是否撞墙
+        if(value < 0 || value > 290) {
+            throw new Error('GAME OVER');
+        }
         this.head.style.left = value + 'px';
     }
 
     set Y(value) {
+        // 如果新值和旧值相同，则直接返回不再修改
+        if(this.Y === value) {
+            return;
+        }
+        // 检查是否撞墙
+        if(value < 0 || value > 290) {
+            throw new Error('GAME OVER');
+        }
         this.head.style.top = value + 'px';
     }
 
