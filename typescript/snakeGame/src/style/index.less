@@ -41,11 +41,21 @@ body{
 
     // 设置蛇的样式
     #snake{
+      #head{
+        width: 10px;
+        height: 10px;
+        background-color: red;
+        border: 1px solid @bg-color;
+        border-radius: 3px;
+        // 开启绝对定位
+        position: absolute;
+      }
       &>div{
         width: 10px;
         height: 10px;
         background-color: black;
         border: 1px solid @bg-color;
+        border-radius: 3px;
         // 开启绝对定位
         position: absolute;
       }
@@ -54,6 +64,8 @@ body{
       width: 10px;
       height: 10px;
       position: absolute;
+      border-radius: 10px;
+      background-color: snow;
       left: 40px;
       top: 100px;
 
@@ -67,6 +79,7 @@ body{
       &>div{
         width: 4px;
         height: 4px;
+        border-radius: 1px;
         background-color: black;
         // 设置旋转角度
         transform: rotate(45deg);
