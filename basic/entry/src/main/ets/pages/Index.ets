@@ -1,36 +1,22 @@
-@Entry  //代表的是组件的入口
-@Component  // 代表的是自定义组件
+//切换按钮
+@Entry
+@Component
 struct Index {
-  // 定义响应式数据
-  @State isOn:boolean = false;
-  // 书写UI的地方
+
   build() {
-    Column({space:20}){
-
-      Row(){
-        Image(this.isOn?$rawfile('code-wallpaper-2.jpeg'):$rawfile('maxresdefault.jpg'))
-          .width("100%")
-          .height(200)
-      }
-      .width('100%')
-
-      Row(){
-        Button("开灯")
-          .margin({right:20})
-          .onClick(()=>{
-            this.isOn = true;
-          })
-        Button("关灯")
-          .margin({left:20})
-          .onClick(()=>{
-            this.isOn = false;
-          })
-      }
-      .width('100%')
-      .justifyContent(FlexAlign.Center)
-
+    Column() {
+      // 切换按钮：复选框形式
+      Toggle({type:ToggleType.Checkbox,isOn:false})
+        .width(50)
+      //切换按钮:开关 isOn:决定开还是关闭
+      Toggle({type:ToggleType.Switch,isOn:false})
+        .switchPointColor(Color.Pink)
+        .width(50)
+      //按钮
+      Toggle({type:ToggleType.Button,isOn:true}){
+        Text('我是自定义')
+      }.selectedColor(Color.Pink)
     }
     .width('100%')
-
   }
 }
