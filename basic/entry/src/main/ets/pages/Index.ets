@@ -1,31 +1,34 @@
-// 页面布局案例
+// 组件状态管理
+import Child from '../Views/Child'
+import Child1 from '../Views/Child1';
+
 @Entry
 @Component
 struct Index {
+  // 定义组件内的状态
+  @State count: number = 1;
+  @State count1:number = 1;
+
   build() {
     Column() {
-      Row() {
+      Flex({ direction: FlexDirection.Column }) {
+        Text('state count：' + this.count).fontSize(20)
+        Text('state count1：' + this.count1).fontSize(20)
+        Button('Prop+1').onClick((event: ClickEvent) => {
+          this.count++;
+        })
+        Button('Link+1').onClick((event: ClickEvent) => {
+          this.count1++;
+        })
 
-        Image($rawfile('ic_bluetooth.png'))
-          .width(30)
-          .height(30)
-        Text('蓝牙')
-          .fontSize(20)
-          .padding(5)
-        Blank()
-        Toggle({ type:ToggleType.Switch })
 
+        //自定义组件:父给子传递参数 ---Prop
+        Child({ count: this.count })
+        // 自定义组件:父给子传递参数 ---Link
+        Child1({count1:$count1})
       }
-      .width('100%')
-      .height(60)
-      .backgroundColor(Color.White)
-      .padding({ left: 10, right: 10 })
-      .borderRadius(15)
-
     }
+    .margin(20)
     .width('100%')
-    .height('100%')
-    .padding(10)
-    .backgroundColor('#E9E9E8')
   }
 }
