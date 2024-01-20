@@ -41,19 +41,19 @@ struct Index {
 
       TabContent() {
         See()
-      }.tabBar(this.tabBarBuilder(0, '想看', $r("app.media.tabbar_see"), $r("app.media.tabbar_see_active")))
+      }.tabBar(this.tabBarBuilder(1, '想看', $r("app.media.tabbar_see"), $r("app.media.tabbar_see_active")))
 
       TabContent() {
         Service()
-      }.tabBar(this.tabBarBuilder(0, '服务', $r('app.media.tabbar_service'), $r('app.media.tabbar_service_active')))
+      }.tabBar(this.tabBarBuilder(2, '服务', $r('app.media.tabbar_service'), $r('app.media.tabbar_service_active')))
 
       TabContent() {
         Discover()
-      }.tabBar(this.tabBarBuilder(0, '发现', $r("app.media.tabbar_discover"), $r('app.media.tabbar_discover_active')))
+      }.tabBar(this.tabBarBuilder(3, '发现', $r("app.media.tabbar_discover"), $r('app.media.tabbar_discover_active')))
 
       TabContent() {
         My()
-      }.tabBar(this.tabBarBuilder(0, '我的', $r('app.media.tabbar_my'), $r('app.media.tabbar_my_active')))
+      }.tabBar(this.tabBarBuilder(4, '我的', $r('app.media.tabbar_my'), $r('app.media.tabbar_my_active')))
     }
     .barPosition(BarPosition.End)
     .scrollable(false)

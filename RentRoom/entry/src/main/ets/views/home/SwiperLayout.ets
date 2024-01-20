@@ -1,3 +1,4 @@
+/*
 import type { IBannerItem, IBannerList } from '../../model/HomeData';
 
 @Component
@@ -20,4 +21,4 @@ export default struct SwiperLayout {
       selectedColor: '#479559'
     })
   }
-}
+}*/
